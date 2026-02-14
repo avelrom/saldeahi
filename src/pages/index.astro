@@ -15,12 +15,19 @@ import partidosData from "@/data/partidos.json";
 import autonomiasData from "@/data/autonomias.json";
 import universidadesData from "@/data/universidades.json";
 
-// Función para normalizar datos (misma que en DataTable)
+// Una cuenta se considera activa sólo si publicó en los últimos 30 días
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+function isActiveDate(val: unknown): boolean {
+  if (!val || typeof val !== 'string') return false;
+  if (!/^\d{4}-\d{2}-\d{2}/.test(val)) return false;
+  return Date.now() - new Date(val).getTime() <= THIRTY_DAYS_MS;
+}
+
 function normalizeItem(item: any) {
   return {
-    twitter_activo: item.twitter_activo || false,
-    bluesky_activo: item.bluesky_activo || false,
-    mastodon_activo: item.mastodon_activo || false,
+    twitter_activo:  isActiveDate(item.twitter_activo),
+    bluesky_activo:  isActiveDate(item.bluesky_activo),
+    mastodon_activo: isActiveDate(item.mastodon_activo),
   };
 }
 

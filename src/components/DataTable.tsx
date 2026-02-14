@@ -72,6 +72,14 @@ const MastodonIcon = ({ handle, activo }: { handle?: string | null; activo?: boo
   return icon;
 };
 
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+
+function isActiveDate(val: unknown): boolean {
+  if (!val || typeof val !== 'string') return false;
+  if (!/^\d{4}-\d{2}-\d{2}/.test(val)) return false;
+  return Date.now() - new Date(val).getTime() <= THIRTY_DAYS_MS;
+}
+
 function normalizeData(data: any[], categoria: string) {
   return data.map((item) => {
     let detalle = '';
@@ -88,11 +96,11 @@ function normalizeData(data: any[], categoria: string) {
       detalle,
       categoria,
       twitter:         item.twitter         || null,
-      twitter_activo:  item.twitter_activo  || false,
+      twitter_activo:  isActiveDate(item.twitter_activo),
       bluesky:         item.bluesky         || null,
-      bluesky_activo:  item.bluesky_activo  || false,
+      bluesky_activo:  isActiveDate(item.bluesky_activo),
       mastodon:        item.mastodon        || null,
-      mastodon_activo: item.mastodon_activo || false,
+      mastodon_activo: isActiveDate(item.mastodon_activo),
       email: item.email || null,
       raw: item,
     };

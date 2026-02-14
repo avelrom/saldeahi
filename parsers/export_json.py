@@ -38,7 +38,7 @@ import re
 import sys
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import openpyxl
 
 # ── Rutas ─────────────────────────────────────────────────────────────────────
@@ -91,12 +91,18 @@ def fmt_date(val):
 
 
 def is_active(val) -> bool:
-    """True si el valor es una fecha real (cuenta activa)."""
-    if isinstance(val, datetime):
-        return True
-    if isinstance(val, str):
-        return bool(re.match(r"^\d{4}-\d{2}-\d{2}", val))
-    return False
+    """True si el valor es una fecha real de los últimos 30 días."""
+    if not isinstance(val, str):
+        return False
+    m = re.match(r"^(\d{4}-\d{2}-\d{2})", val)
+    if not m:
+        return False
+    try:
+        d = datetime.strptime(m.group(1), "%Y-%m-%d").date()
+        cutoff = (datetime.now() - timedelta(days=30)).date()
+        return d >= cutoff
+    except ValueError:
+        return False
 
 
 def v(ws, row: int, col: int):
