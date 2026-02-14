@@ -38,7 +38,7 @@ export function IconLegend() {
           <p className="font-medium mb-2">Mastodon</p>
           <ul className="space-y-2 text-slate-600">
             <li className="flex items-center gap-2">
-              <XCircle className="h-3 w-3 sm:h-4 sm:w-4 text-red-500 flex-shrink-0" />
+              <XCircle className="h-3 w-3 sm:h-4 sm:w-4 text-slate-300 flex-shrink-0" />
               <span>Sin cuenta</span>
             </li>
             <li className="flex items-center gap-2">

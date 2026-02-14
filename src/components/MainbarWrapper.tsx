@@ -10,10 +10,9 @@ interface MainbarWrapperProps {
     bluesky: number;
     sinAlternativa: number;
   };
-  targetSelector: string;
 }
 
-export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperProps) {
+export function MainbarWrapper({ initialStats }: MainbarWrapperProps) {
   const [stats, setStats] = useState(initialStats);
 
   useEffect(() => {
@@ -30,13 +29,6 @@ export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperP
 
   return (
     <>
-      <style>{`
-        .mainbar-container > div {
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-      `}</style>
-      
       <div className="space-y-4 sm:space-y-6 w-full">
         {/* Barra 1: Estado en X */}
         <div className="w-full">
@@ -47,7 +39,6 @@ export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperP
             <Mainbar
               className="mt-2"
               trackClassName="ring-0 shadow-none"
-              targetSelector={targetSelector}
               segments={[
                 { label: "Fuera de X", value: stats.fueraDeX, colorClass: "bg-emerald-600" },
                 { label: "Siguen en X",       value: stats.enX,      colorClass: "bg-red-500"     },
@@ -78,7 +69,6 @@ export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperP
             <Mainbar
               className="mt-2"
               trackClassName="ring-0 shadow-none"
-              targetSelector={targetSelector}
               segments={[
                 { label: "Mastodon",       value: stats.mastodon,       colorClass: "bg-purple-600" },
                 { label: "Bluesky",        value: stats.bluesky,        colorClass: "bg-sky-500"    },
