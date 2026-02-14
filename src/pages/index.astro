@@ -1,11 +1,152 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { SearchBar } from "@/components/SearchBar";
+import Layout from "../layouts/Layout.astro";
+import { MainbarWrapper } from "@/components/MainbarWrapper";
+import { FilterTabs } from "@/components/FilterTabs";
+import { DataTable } from "@/components/DataTable";
+import { IconLegend } from "@/components/IconLegend";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Importar datos para calcular estadísticas en el servidor
+import ageData from "@/data/age.json";
+import gobiernoData from "@/data/gobierno.json";
+import congresoData from "@/data/congreso.json";
+import senadoData from "@/data/senado.json";
+import partidosData from "@/data/partidos.json";
+import autonomiasData from "@/data/autonomias.json";
+import universidadesData from "@/data/universidades.json";
+
+// Función para normalizar datos (misma que en DataTable)
+function normalizeItem(item: any) {
+  return {
+    twitter_activo: item.twitter_activo || false,
+    bluesky_activo: item.bluesky_activo || false,
+    mastodon_activo: item.mastodon_activo || false,
+  };
+}
+
+// Unificar todos los datos
+const allData = [
+  ...ageData.map(normalizeItem),
+  ...gobiernoData.map(normalizeItem),
+  ...congresoData.map(normalizeItem),
+  ...senadoData.map(normalizeItem),
+  ...partidosData.map(normalizeItem),
+  ...autonomiasData.map(normalizeItem),
+  ...universidadesData.map(normalizeItem),
+];
+
+// Calcular estadísticas
+function calculateStats(data: any[]) {
+  const total = data.length;
+  if (total === 0) {
+    return { 
+      enX: 0, 
+      fueraDeX: 0, 
+      mastodon: 0, 
+      bluesky: 0, 
+      sinAlternativa: 0 
+    };
+  }
+
+  let enX = 0;
+  let fueraDeX = 0;
+  let mastodon = 0;
+  let bluesky = 0;
+  let sinAlternativa = 0;
+
+  data.forEach(item => {
+    const twitterActivo = item.twitter_activo || false;
+    const mastodonActivo = item.mastodon_activo || false;
+    const blueskyActivo = item.bluesky_activo || false;
+
+    // Barra 1: ¿Están en X?
+    if (twitterActivo) {
+      enX++;
+    } else {
+      fueraDeX++;
+    }
+
+    // Barra 2: ¿Qué alternativas federadas tienen?
+    if (mastodonActivo) {
+      mastodon++;
+    } else if (blueskyActivo) {
+      bluesky++;
+    } else {
+      sinAlternativa++;
+    }
+  });
+
+  return { enX, fueraDeX, mastodon, bluesky, sinAlternativa };
+}
+
+const stats = calculateStats(allData);
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="sal de ahí"
+  description="Exige a tus representantes e instituciones públicas que abandonen redes sociales gobernadas por oligarcas."
+>
+  <div class="text-center px-4 sm:px-6">
+    <h1 class="text-balance font-title tracking-tight
+               text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extralight">
+      <a href="/">sal de ahí</a>
+    </h1>
+
+    <h2 id="hero-h2" class="mt-4 sm:mt-6 md:mt-10 text-balance font-sans tracking-tight
+               text-sm sm:text-base md:text-lg lg:text-xl max-w-4xl mx-auto px-2">
+      Los Gobiernos democráticos deberían habitar espacios democráticos.
+      <span class="block mt-2">Exige a tus representantes e instituciones públicas que abandonen redes sociales gobernadas por oligarcas.</span>
+    </h2>
+
+    <div class="mt-6 sm:mt-8 md:mt-10 w-full max-w-3xl mx-auto px-4">
+      <MainbarWrapper
+        client:load
+        targetSelector="#hero-h2"
+        initialStats={{
+          enX: stats.enX,
+          fueraDeX: stats.fueraDeX,
+          mastodon: stats.mastodon,
+          bluesky: stats.bluesky,
+          sinAlternativa: stats.sinAlternativa,
+        }}
+      />
+    </div>
+
+    <div class="mt-6 sm:mt-8 md:mt-10 w-full max-w-2xl mx-auto px-4">
+      <SearchBar 
+        client:load 
+        className="mt-4" 
+        size="md" 
+        placeholder="Buscar entidad, ministerio, partido..."
+      />
+    </div>
+	
+    <div class="mt-6 sm:mt-8 md:mt-10 w-full px-4">
+      <FilterTabs
+        client:load
+        className="mt-2"
+        defaultValue="age"
+        items={[
+          { value: "total",         label: "Total"          },
+          { value: "age",           label: "Administración" },
+          { value: "gobierno",      label: "Gobierno"       },
+          { value: "congreso",      label: "Congreso"       },
+          { value: "senado",        label: "Senado"         },
+          { value: "partidos",      label: "Partidos"       },
+          { value: "autonomias",    label: "Autonomías"     },
+          { value: "universidades", label: "Universidades"  },
+        ]}
+      />
+    </div>
+
+    <!-- Tabla de datos -->
+    <div class="mt-6 sm:mt-8 md:mt-10 w-full px-2 sm:px-4">
+      <DataTable client:load />
+    </div>
+
+    <!-- Leyenda de iconos -->
+    <div class="mt-6 sm:mt-8 w-full max-w-4xl mx-auto px-4 mb-10">
+      <IconLegend client:load />
+    </div>
+  </div>
 </Layout>
