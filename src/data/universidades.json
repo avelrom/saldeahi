@@ -1,7 +1,7 @@
 [
   {
     "nombre": "Universidad Autónoma de Madrid",
-    "tipo": null,
+    "tipo": "Comunidad de Madrid",
     "twitter": "UAM_Madrid",
     "twitter_activo": "2026-02-13",
     "bluesky": "uam.es",
@@ -12,7 +12,7 @@
   },
   {
     "nombre": "Universidad Carlos III de Madrid",
-    "tipo": null,
+    "tipo": "Comunidad de Madrid",
     "twitter": "uc3m",
     "twitter_activo": "2026-02-13",
     "bluesky": "uc3m.bsky.social",
@@ -23,7 +23,7 @@
   },
   {
     "nombre": "Universidad Complutense de Madrid",
-    "tipo": null,
+    "tipo": "Comunidad de Madrid",
     "twitter": "unicomplutense",
     "twitter_activo": "2026-02-11",
     "bluesky": "ucm.es",
@@ -34,7 +34,7 @@
   },
   {
     "nombre": "Universidad Internacional Menéndez Pelayo (UIMP)",
-    "tipo": null,
+    "tipo": "Estatal",
     "twitter": "uimp",
     "twitter_activo": "2026-02-12",
     "bluesky": null,
@@ -45,7 +45,7 @@
   },
   {
     "nombre": "Universidad Internacional de Andalucía",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "UNIAuniversidad",
     "twitter_activo": "2025-05-30",
     "bluesky": null,
@@ -56,7 +56,7 @@
   },
   {
     "nombre": "Universidad Miguel Hernández de Elche",
-    "tipo": null,
+    "tipo": "Comunidad Valenciana",
     "twitter": "UniversidadMH",
     "twitter_activo": "2026-02-14",
     "bluesky": "umh.es",
@@ -67,7 +67,7 @@
   },
   {
     "nombre": "Universidad Nacional de Educación a Distancia (UNED)",
-    "tipo": null,
+    "tipo": "Estatal",
     "twitter": "UNED",
     "twitter_activo": "2026-02-13",
     "bluesky": "uned.bsky.social",
@@ -78,7 +78,7 @@
   },
   {
     "nombre": "Universidad Pablo de Olavide",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": null,
     "twitter_activo": null,
     "bluesky": "pablodeolavide.upo.es",
@@ -89,7 +89,7 @@
   },
   {
     "nombre": "Universidad Politécnica de Cartagena",
-    "tipo": null,
+    "tipo": "Región de Murcia",
     "twitter": "UPCToficial",
     "twitter_activo": "2026-02-13",
     "bluesky": null,
@@ -100,9 +100,9 @@
   },
   {
     "nombre": "Universidad Politécnica de Madrid",
-    "tipo": null,
-    "twitter": "UPM_Madrid",
-    "twitter_activo": "404",
+    "tipo": "Comunidad de Madrid",
+    "twitter": "La_UPM",
+    "twitter_activo": "2026-02-13",
     "bluesky": "upm.es",
     "bluesky_activo": "2026-02-13",
     "mastodon": null,
@@ -111,7 +111,7 @@
   },
   {
     "nombre": "Universidad Pública de Navarra",
-    "tipo": null,
+    "tipo": "Navarra",
     "twitter": "Unavarra",
     "twitter_activo": "2026-02-13",
     "bluesky": "upna.bsky.social",
@@ -122,7 +122,7 @@
   },
   {
     "nombre": "Universidad Rey Juan Carlos",
-    "tipo": null,
+    "tipo": "Comunidad de Madrid",
     "twitter": "urjc",
     "twitter_activo": "2026-02-13",
     "bluesky": "urjc.bsky.social",
@@ -133,7 +133,7 @@
   },
   {
     "nombre": "Universidad de Alcalá",
-    "tipo": null,
+    "tipo": "Comunidad de Madrid",
     "twitter": "uahes",
     "twitter_activo": "2026-02-13",
     "bluesky": "uahes.bsky.social",
@@ -144,7 +144,7 @@
   },
   {
     "nombre": "Universidad de Alicante",
-    "tipo": null,
+    "tipo": "Comunidad Valenciana",
     "twitter": "UA_Universidad",
     "twitter_activo": "2026-02-13",
     "bluesky": "ua.es",
@@ -155,7 +155,7 @@
   },
   {
     "nombre": "Universidad de Almería",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "ualmeria",
     "twitter_activo": "2026-02-14",
     "bluesky": "ualmeria.bsky.social",
@@ -166,9 +166,9 @@
   },
   {
     "nombre": "Universidad de Burgos",
-    "tipo": null,
-    "twitter": "UBU_Info",
-    "twitter_activo": "404",
+    "tipo": "Castilla y León",
+    "twitter": "UBUEstudiantes",
+    "twitter_activo": "2026-02-13",
     "bluesky": "universidadburgos.bsky.social",
     "bluesky_activo": "2025-10-15",
     "mastodon": null,
@@ -177,7 +177,7 @@
   },
   {
     "nombre": "Universidad de Cantabria",
-    "tipo": null,
+    "tipo": "Cantabria",
     "twitter": "unican",
     "twitter_activo": "2026-02-13",
     "bluesky": null,
@@ -188,9 +188,9 @@
   },
   {
     "nombre": "Universidad de Castilla-La Mancha",
-    "tipo": null,
-    "twitter": null,
-    "twitter_activo": null,
+    "tipo": "Castilla-La Mancha",
+    "twitter": "uclm_es",
+    "twitter_activo": "2026-02-12",
     "bluesky": "uclm.es",
     "bluesky_activo": "2026-02-12",
     "mastodon": null,
@@ -199,7 +199,7 @@
   },
   {
     "nombre": "Universidad de Cádiz",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "univcadiz",
     "twitter_activo": "2026-02-14",
     "bluesky": "univcadiz.bsky.social",
@@ -210,9 +210,9 @@
   },
   {
     "nombre": "Universidad de Córdoba",
-    "tipo": null,
-    "twitter": "UniCórdoba",
-    "twitter_activo": "404",
+    "tipo": "Andalucía",
+    "twitter": "Univcordoba",
+    "twitter_activo": "2025-01-20",
     "bluesky": "uco.es",
     "bluesky_activo": "2026-02-13",
     "mastodon": null,
@@ -221,7 +221,7 @@
   },
   {
     "nombre": "Universidad de Extremadura",
-    "tipo": null,
+    "tipo": "Extremadura",
     "twitter": "infouex",
     "twitter_activo": "2026-02-13",
     "bluesky": null,
@@ -232,9 +232,9 @@
   },
   {
     "nombre": "Universidad de Granada",
-    "tipo": null,
-    "twitter": null,
-    "twitter_activo": null,
+    "tipo": "Andalucía",
+    "twitter": "CanalUGR",
+    "twitter_activo": "2026-02-14",
     "bluesky": "universidadgranada.bsky.social",
     "bluesky_activo": "2026-02-14",
     "mastodon": null,
@@ -243,7 +243,7 @@
   },
   {
     "nombre": "Universidad de Huelva",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "UniHuelva",
     "twitter_activo": "2026-02-12",
     "bluesky": "unihuelva.bsky.social",
@@ -254,7 +254,7 @@
   },
   {
     "nombre": "Universidad de Jaén",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "ujaen",
     "twitter_activo": "2026-02-12",
     "bluesky": "universidadjaen.bsky.social",
@@ -265,7 +265,7 @@
   },
   {
     "nombre": "Universidad de La Laguna",
-    "tipo": null,
+    "tipo": "Canarias",
     "twitter": "ULL",
     "twitter_activo": "2026-02-14",
     "bluesky": "ull.bsky.social",
@@ -276,7 +276,7 @@
   },
   {
     "nombre": "Universidad de La Rioja",
-    "tipo": null,
+    "tipo": "La Rioja",
     "twitter": "unirioja",
     "twitter_activo": "2026-02-14",
     "bluesky": "unirioja.bsky.social",
@@ -287,8 +287,8 @@
   },
   {
     "nombre": "Universidad de Las Palmas de Gran Canaria",
-    "tipo": null,
-    "twitter": "ulpgc",
+    "tipo": "Canarias",
+    "twitter": "ULPGC",
     "twitter_activo": null,
     "bluesky": "ulpgc.es",
     "bluesky_activo": "2026-02-12",
@@ -298,7 +298,7 @@
   },
   {
     "nombre": "Universidad de León",
-    "tipo": null,
+    "tipo": "Castilla y León",
     "twitter": "universidadleon",
     "twitter_activo": "2017-05-26",
     "bluesky": null,
@@ -309,9 +309,9 @@
   },
   {
     "nombre": "Universidad de Murcia",
-    "tipo": null,
-    "twitter": "UniversidadMurcia",
-    "twitter_activo": "404",
+    "tipo": "Región de Murcia",
+    "twitter": "UMU",
+    "twitter_activo": "2026-02-12",
     "bluesky": "um.es",
     "bluesky_activo": "2026-02-12",
     "mastodon": null,
@@ -320,7 +320,7 @@
   },
   {
     "nombre": "Universidad de Málaga",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "infouma",
     "twitter_activo": "2026-02-13",
     "bluesky": "univmalaga.bsky.social",
@@ -331,9 +331,9 @@
   },
   {
     "nombre": "Universidad de Oviedo",
-    "tipo": null,
-    "twitter": "uniovi_info",
-    "twitter_activo": null,
+    "tipo": "Asturias",
+    "twitter": "UniOviedo",
+    "twitter_activo": "2011-11-15",
     "bluesky": "universidadoviedo.bsky.social",
     "bluesky_activo": "2026-02-14",
     "mastodon": null,
@@ -342,7 +342,7 @@
   },
   {
     "nombre": "Universidad de Salamanca",
-    "tipo": null,
+    "tipo": "Castilla y León",
     "twitter": "usal",
     "twitter_activo": "2026-02-13",
     "bluesky": "usal.bsky.social",
@@ -353,7 +353,7 @@
   },
   {
     "nombre": "Universidad de Sevilla",
-    "tipo": null,
+    "tipo": "Andalucía",
     "twitter": "unisevilla",
     "twitter_activo": "2025-01-24",
     "bluesky": "unisevilla.us.es",
@@ -364,7 +364,7 @@
   },
   {
     "nombre": "Universidad de Valladolid",
-    "tipo": null,
+    "tipo": "Castilla y León",
     "twitter": "uva_es",
     "twitter_activo": "2026-02-13",
     "bluesky": "uva-es.bsky.social",
@@ -375,7 +375,7 @@
   },
   {
     "nombre": "Universidad de Zaragoza",
-    "tipo": null,
+    "tipo": "Aragón",
     "twitter": "unizar",
     "twitter_activo": "2025-02-03",
     "bluesky": "unizar.es",
@@ -386,9 +386,9 @@
   },
   {
     "nombre": "Universidad del País Vasco / Euskal Herriko Unibertsitatea",
-    "tipo": null,
-    "twitter": "UPV_EHU",
-    "twitter_activo": "404",
+    "tipo": "País Vasco",
+    "twitter": "upvehu",
+    "twitter_activo": "2025-03-18",
     "bluesky": "ehu.eus",
     "bluesky_activo": "2026-02-13",
     "mastodon": null,
@@ -397,9 +397,9 @@
   },
   {
     "nombre": "Universidade da Coruña",
-    "tipo": null,
-    "twitter": "unidaCorunha",
-    "twitter_activo": "404",
+    "tipo": "Galicia",
+    "twitter": "UDC_gal",
+    "twitter_activo": "2025-01-31",
     "bluesky": "udc.gal",
     "bluesky_activo": "2026-02-14",
     "mastodon": null,
@@ -408,7 +408,7 @@
   },
   {
     "nombre": "Universidade de Santiago de Compostela",
-    "tipo": null,
+    "tipo": "Galicia",
     "twitter": "unisantiago",
     "twitter_activo": "2026-02-14",
     "bluesky": "buscusc.bsky.social",
@@ -419,7 +419,7 @@
   },
   {
     "nombre": "Universidade de Vigo",
-    "tipo": null,
+    "tipo": "Galicia",
     "twitter": "uvigo",
     "twitter_activo": "2026-02-14",
     "bluesky": "uvigo.bsky.social",
@@ -430,7 +430,7 @@
   },
   {
     "nombre": "Universitat Autònoma de Barcelona",
-    "tipo": null,
+    "tipo": "Cataluña",
     "twitter": "UABBarcelona",
     "twitter_activo": "2025-02-24",
     "bluesky": "uab.cat",
@@ -441,7 +441,7 @@
   },
   {
     "nombre": "Universitat Jaume I de Castelló",
-    "tipo": null,
+    "tipo": "Comunidad Valenciana",
     "twitter": "UJIuniversitat",
     "twitter_activo": "2025-01-17",
     "bluesky": "uji.es",
@@ -452,9 +452,9 @@
   },
   {
     "nombre": "Universitat Politècnica de Catalunya",
-    "tipo": null,
-    "twitter": "UPC",
-    "twitter_activo": "404",
+    "tipo": "Cataluña",
+    "twitter": "la_UPC",
+    "twitter_activo": "2025-04-30",
     "bluesky": "upc.bsky.social",
     "bluesky_activo": "2023-09-06",
     "mastodon": null,
@@ -463,7 +463,7 @@
   },
   {
     "nombre": "Universitat Politècnica de València",
-    "tipo": null,
+    "tipo": "Comunidad Valenciana",
     "twitter": "UPV",
     "twitter_activo": "2026-02-13",
     "bluesky": "upv.bsky.social",
@@ -474,8 +474,8 @@
   },
   {
     "nombre": "Universitat Pompeu Fabra",
-    "tipo": null,
-    "twitter": "UniPompeuFabra",
+    "tipo": "Cataluña",
+    "twitter": "UPFBarcelona",
     "twitter_activo": "404",
     "bluesky": "upf.edu",
     "bluesky_activo": "2026-02-13",
@@ -485,7 +485,7 @@
   },
   {
     "nombre": "Universitat Rovira i Virgili",
-    "tipo": null,
+    "tipo": "Cataluña",
     "twitter": "universitatURV",
     "twitter_activo": "2026-02-13",
     "bluesky": "urv.cat",
@@ -496,7 +496,7 @@
   },
   {
     "nombre": "Universitat de Barcelona",
-    "tipo": null,
+    "tipo": "Cataluña",
     "twitter": "UniBarcelona",
     "twitter_activo": "2024-11-15",
     "bluesky": "ub.edu",
@@ -507,9 +507,9 @@
   },
   {
     "nombre": "Universitat de Girona",
-    "tipo": null,
-    "twitter": "UdGirona",
-    "twitter_activo": "404",
+    "tipo": "Cataluña",
+    "twitter": "univgirona",
+    "twitter_activo": "2025-07-30",
     "bluesky": "univgirona.bsky.social",
     "bluesky_activo": "2026-02-11",
     "mastodon": null,
@@ -518,9 +518,9 @@
   },
   {
     "nombre": "Universitat de Lleida",
-    "tipo": null,
-    "twitter": "UdLleida",
-    "twitter_activo": "404",
+    "tipo": "Cataluña",
+    "twitter": "UdL_info",
+    "twitter_activo": "2026-02-13",
     "bluesky": "udl.cat",
     "bluesky_activo": "2026-02-13",
     "mastodon": null,
@@ -529,7 +529,7 @@
   },
   {
     "nombre": "Universitat de València",
-    "tipo": null,
+    "tipo": "Comunidad Valenciana",
     "twitter": "UV_EG",
     "twitter_activo": "2026-02-13",
     "bluesky": "uv.es",
@@ -540,7 +540,7 @@
   },
   {
     "nombre": "Universitat de les Illes Balears",
-    "tipo": null,
+    "tipo": "Islas Baleares",
     "twitter": "UIBuniversitat",
     "twitter_activo": "2024-11-29",
     "bluesky": "uib.cat",
