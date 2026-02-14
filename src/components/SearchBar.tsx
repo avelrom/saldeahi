@@ -26,12 +26,17 @@ export function SearchBar({
 
   return (
     <div className={`relative ${className}`}>
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+      <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
       <Input
-        type="search"
+        type="text"
+        inputMode="search"
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="none"
+        spellCheck={false}
         className={`pl-10 ${
           size === "sm" ? "h-8" : size === "lg" ? "h-12 text-lg" : "h-10"
         }`}

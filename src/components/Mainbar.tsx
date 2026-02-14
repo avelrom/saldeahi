@@ -76,7 +76,7 @@ export function Mainbar({
     <div
       ref={wrapRef}
       className={cn("mx-auto", className)}
-      style={matchedWidth ? { width: `${matchedWidth}px` } : undefined}
+      style={matchedWidth ? { width: `${matchedWidth}px`, maxWidth: '100%' } : undefined}
     >
       {/* Track */}
       <div

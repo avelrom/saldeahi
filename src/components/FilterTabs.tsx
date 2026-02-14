@@ -30,7 +30,7 @@ export function FilterTabs({
   const half = Math.ceil(items.length / 2);
 
   const TabRow = ({ rowItems }: { rowItems: TabItem[] }) => (
-    <div role="tablist" className="flex gap-1 rounded-lg bg-muted p-1">
+    <div role="tablist" className="flex gap-1 rounded-lg bg-muted p-1 overflow-x-auto">
       {rowItems.map((it) => (
         <button
           key={it.value}
@@ -38,7 +38,7 @@ export function FilterTabs({
           aria-selected={active === it.value}
           onClick={() => handleClick(it.value)}
           className={cn(
-            "flex-1 rounded-md transition-colors whitespace-nowrap font-medium",
+            "shrink-0 rounded-md transition-colors whitespace-nowrap font-medium",
             pill,
             active === it.value
               ? "bg-background text-foreground shadow-sm ring-1 ring-border"
