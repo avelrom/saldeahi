@@ -8,7 +8,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Radiation, XCircle, Mail, Edit, ArrowUpDown } from "lucide-react";
+import { CheckCircle, Radiation, XCircle, Mail, Flag, ArrowUpDown } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import ageData from "@/data/age.json";
 import gobiernoData from "@/data/gobierno.json";
@@ -75,7 +76,7 @@ const MastodonIcon = ({ handle, activo }: { handle?: string | null; activo?: boo
 
   let icon;
   if (!hasAccount) {
-    icon = <XCircle className="h-5 w-5 text-red-500" />;
+    icon = <XCircle className="h-5 w-5 text-slate-300" />;
   } else if (!activo) {
     icon = <CheckCircle className="h-5 w-5 text-amber-400" />;
   } else {
@@ -142,6 +143,48 @@ const FALLBACK_EMAILS: Record<string, string> = {
   'Autonomías': 'comunicacion@gobierno.regional.es',
   'Universidades': 'informacion@universidad.es',
 };
+
+const REPO = "https://github.com/avelrom/saldeahi";
+
+function generateIssueUrl(item: any) {
+  const title = `Corrección de datos: ${item.nombre}`;
+
+  const tw  = item.twitter   ? `\`${item.twitter}\``   : "_sin cuenta_";
+  const bs  = item.bluesky   ? `\`${item.bluesky}\``   : "_sin cuenta_";
+  const md  = item.mastodon  ? `\`${item.mastodon}\``  : "_sin cuenta_";
+  const em  = item.email     ? `\`${item.email}\``     : "_no disponible_";
+  const sub = item.detalle   ? ` · ${item.detalle}`    : "";
+
+  const body =
+`## Entidad
+**${item.nombre}** (${item.categoria}${sub})
+
+## Datos que figuran ahora
+
+| Campo | Valor actual |
+|-------|-------------|
+| X / Twitter | ${tw} |
+| Bluesky | ${bs} |
+| Mastodon | ${md} |
+| Email | ${em} |
+
+## ¿Qué hay que cambiar?
+
+Marca lo que corresponda y escribe el valor correcto:
+
+- [ ] **X / Twitter** está mal o ha cambiado → el correcto es:\u0020
+- [ ] **Bluesky** está mal o ha cambiado → el correcto es:\u0020
+- [ ] **Mastodon** está mal o ha cambiado → el correcto es:\u0020
+- [ ] **Email** está mal o ha cambiado → el correcto es:\u0020
+- [ ] La cuenta ya no existe o está suspendida
+- [ ] Falta una cuenta que no aparece en la tabla
+- [ ] Otro motivo:\u0020
+
+---
+_Gracias por ayudar a mantener los datos actualizados._`;
+
+  return `${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=${encodeURIComponent("datos")}`;
+}
 
 export function DataTable() {
   const [activeTab, setActiveTab] = useState("age");
@@ -250,12 +293,18 @@ export function DataTable() {
 
   return (
     <div className="w-full relative">
+      <div className="md:hidden rounded-md border border-slate-200 bg-slate-50 px-6 py-8 text-center text-slate-500 text-sm">
+        <p className="font-medium text-slate-700 mb-1">La tabla no está disponible en móvil</p>
+        <p>Ábrela desde un ordenador para consultar y filtrar todos los datos.</p>
+      </div>
+
+      <div className="hidden md:block">
       <div className="mb-4 text-sm text-slate-600">
         Mostrando {sortedData.length} de {rawData.length} entidades
       </div>
 
       <div className="rounded-md border overflow-x-auto">
-        <Table>
+        <Table className="table-fixed">
           <TableHeader>
             <TableRow>
               <TableHead
@@ -283,11 +332,11 @@ export function DataTable() {
                 </div>
               </TableHead>
               <TableHead
-                className="cursor-pointer hover:bg-slate-50 text-center"
+                className="w-24 cursor-pointer hover:bg-slate-50 text-center"
                 onClick={() => handleSort('twitter')}
               >
                 <div className="flex items-center justify-center gap-1">
-                  <span className="hidden sm:inline">X</span>
+                  <span className="hidden sm:inline">X/Twitter</span>
                   <ArrowUpDown className="h-3 w-3" />
                   {sortColumn === 'twitter' && (
                     <span className="text-xs">{sortDirection === 'asc' ? '↑' : '↓'}</span>
@@ -295,7 +344,7 @@ export function DataTable() {
                 </div>
               </TableHead>
               <TableHead
-                className="cursor-pointer hover:bg-slate-50 text-center"
+                className="w-24 cursor-pointer hover:bg-slate-50 text-center"
                 onClick={() => handleSort('bluesky')}
               >
                 <div className="flex items-center justify-center gap-1">
@@ -307,7 +356,7 @@ export function DataTable() {
                 </div>
               </TableHead>
               <TableHead
-                className="cursor-pointer hover:bg-slate-50 text-center"
+                className="w-24 cursor-pointer hover:bg-slate-50 text-center"
                 onClick={() => handleSort('mastodon')}
               >
                 <div className="flex items-center justify-center gap-1">
@@ -409,38 +458,46 @@ export function DataTable() {
           </TableBody>
         </Table>
       </div>
+      </div>
 
-      {sortedData.map((item, index) => (
-        <div
-          key={`edit-${index}`}
-          id={`edit-btn-${index}`}
-          className="fixed opacity-0 pointer-events-none transition-opacity duration-200 z-50 -translate-y-1/2 hidden md:block"
-          style={{ top: 0, left: 0 }}
-          onMouseEnter={(e) => {
-            const btn = e.currentTarget;
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-            const timeoutId = btn.getAttribute('data-timeout-id');
-            if (timeoutId) clearTimeout(parseInt(timeoutId));
-          }}
-          onMouseLeave={(e) => {
-            const btn = e.currentTarget;
-            btn.style.opacity = '0';
-            btn.style.pointerEvents = 'none';
-          }}
-        >
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-8 w-8 p-0 bg-white hover:shadow-xl"
-            onClick={() => {
-              console.log('Editar:', item);
+      <TooltipProvider>
+        {sortedData.map((item, index) => (
+          <div
+            key={`edit-${index}`}
+            id={`edit-btn-${index}`}
+            className="fixed opacity-0 pointer-events-none transition-opacity duration-200 z-50 -translate-y-1/2 hidden md:block"
+            style={{ top: 0, left: 0 }}
+            onMouseEnter={(e) => {
+              const btn = e.currentTarget;
+              btn.style.opacity = '1';
+              btn.style.pointerEvents = 'auto';
+              const timeoutId = btn.getAttribute('data-timeout-id');
+              if (timeoutId) clearTimeout(parseInt(timeoutId));
+            }}
+            onMouseLeave={(e) => {
+              const btn = e.currentTarget;
+              btn.style.opacity = '0';
+              btn.style.pointerEvents = 'none';
             }}
           >
-            <Edit className="h-4 w-4 text-slate-600" />
-          </Button>
-        </div>
-      ))}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 w-8 p-0 bg-white hover:shadow-xl"
+                  onClick={() => window.open(generateIssueUrl(item), '_blank')}
+                >
+                  <Flag className="h-4 w-4 text-slate-400" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right">
+                Proponer corrección
+              </TooltipContent>
+            </Tooltip>
+          </div>
+        ))}
+      </TooltipProvider>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { Radiation, CheckCircle, XCircle } from "lucide-react";
 export function IconLegend() {
   return (
     <div className="bg-slate-50 rounded-lg p-4 sm:p-6 text-left">
-      <h3 className="font-semibold mb-3 sm:mb-4 text-xs sm:text-sm">Leyenda de iconos:</h3>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs">
         <div>
           <p className="font-medium mb-2">Twitter/X</p>
@@ -53,9 +52,7 @@ export function IconLegend() {
           </ul>
         </div>
       </div>
-      <p className="mt-3 sm:mt-4 text-xs text-slate-500">
-        Los iconos de Twitter, Bluesky y Mastodon son clickables y te llevan al perfil de la entidad (cuando tienen cuenta).
-      </p>
+      
     </div>
   );
 }

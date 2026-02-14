@@ -50,9 +50,9 @@ export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperP
               targetSelector={targetSelector}
               segments={[
                 { label: "Fuera de X", value: stats.fueraDeX, colorClass: "bg-emerald-600" },
-                { label: "En X",       value: stats.enX,      colorClass: "bg-red-500"     },
+                { label: "Siguen en X",       value: stats.enX,      colorClass: "bg-red-500"     },
               ]}
-              ariaLabel={`${stats.fueraDeX} fuera de X, ${stats.enX} en X`}
+              ariaLabel={`${stats.fueraDeX} fuera de X, ${stats.enX} siguen en X`}
               height={14}
               roundedClass="rounded-full"
             />
@@ -63,7 +63,7 @@ export function MainbarWrapper({ initialStats, targetSelector }: MainbarWrapperP
         <div className="w-full">
          <div className="flex items-center justify-center gap-1 mb-2">
   <h3 className="text-xs sm:text-sm font-medium text-slate-700 text-center leading-none">
-    Alternativas federadas
+    Con alternativas federadas
   </h3>
 
   <div className="group relative">
