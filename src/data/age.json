@@ -112,8 +112,8 @@
   {
     "nombre": "Ministerio de Política Territorial y Memoria Democrática",
     "categoria": "Ministerio",
-    "twitter": "mptmd_gob",
-    "twitter_activo": "404",
+    "twitter": "territorialgob",
+    "twitter_activo": null,
     "bluesky": "territorialgob.bsky.social",
     "bluesky_activo": "2025-12-02",
     "mastodon": null,
@@ -178,7 +178,7 @@
   {
     "nombre": "Ministerio de Derechos Sociales, Consumo y Agenda 2030",
     "categoria": "Ministerio",
-    "twitter": "consumogob",
+    "twitter": "MSocialGob",
     "twitter_activo": "2025-01-20",
     "bluesky": "consumogob.bsky.social",
     "bluesky_activo": "2026-02-14",
