@@ -189,6 +189,15 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+/* ── Scroll sin barra visible ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Overrides mínimos para neutralizar el tinte azulado de slate ── */
 /* Nivel alto (texto/íconos intensos, fondos muy oscuros) */
 :root {

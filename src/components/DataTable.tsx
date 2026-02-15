@@ -80,6 +80,15 @@ function isActiveDate(val: unknown): boolean {
   return Date.now() - new Date(val).getTime() <= THIRTY_DAYS_MS;
 }
 
+// Para Twitter: tener handle sin fecha verificada = asumir que siguen en X (rojo).
+// Solo se considera "fuera de X" si: no hay handle, la cuenta da 404, o la última
+// publicación registrada es de hace más de 30 días.
+function twitterOnX(handle: unknown, activo: unknown): boolean {
+  if (!handle) return false;             // sin cuenta → no están en X
+  if (activo == null) return true;       // cuenta existe, sin fecha → asumir activos
+  return isActiveDate(activo);           // fecha → activo sólo si es reciente
+}
+
 function normalizeData(data: any[], categoria: string) {
   return data.map((item) => {
     let detalle = '';
@@ -96,7 +105,7 @@ function normalizeData(data: any[], categoria: string) {
       detalle,
       categoria,
       twitter:         item.twitter         || null,
-      twitter_activo:  isActiveDate(item.twitter_activo),
+      twitter_activo:  twitterOnX(item.twitter, item.twitter_activo),
       bluesky:         item.bluesky         || null,
       bluesky_activo:  isActiveDate(item.bluesky_activo),
       mastodon:        item.mastodon        || null,
@@ -333,8 +342,8 @@ export function DataTable() {
           Mostrando {sortedData.length} de {searchQuery ? allData.length : rawData.length} entidades
         </div>
 
-        <div className="rounded-md border overflow-x-auto">
-          <Table className="table-fixed">
+        <div className="rounded-md border overflow-x-auto no-scrollbar">
+          <Table className="min-w-[640px]">
             <TableHeader>
               <TableRow>
                 <TableHead className="cursor-pointer hover:bg-slate-50" onClick={() => handleSort('nombre')}>

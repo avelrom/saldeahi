@@ -15,7 +15,6 @@ import partidosData from "@/data/partidos.json";
 import autonomiasData from "@/data/autonomias.json";
 import universidadesData from "@/data/universidades.json";
 
-// Una cuenta se considera activa sólo si publicó en los últimos 30 días
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 function isActiveDate(val: unknown): boolean {
   if (!val || typeof val !== 'string') return false;
@@ -23,9 +22,16 @@ function isActiveDate(val: unknown): boolean {
   return Date.now() - new Date(val).getTime() <= THIRTY_DAYS_MS;
 }
 
+// Handle + sin fecha = asumir que siguen en X
+function twitterOnX(handle: unknown, activo: unknown): boolean {
+  if (!handle) return false;
+  if (activo == null) return true;
+  return isActiveDate(activo);
+}
+
 function normalizeItem(item: any) {
   return {
-    twitter_activo:  isActiveDate(item.twitter_activo),
+    twitter_activo:  twitterOnX(item.twitter, item.twitter_activo),
     bluesky_activo:  isActiveDate(item.bluesky_activo),
     mastodon_activo: isActiveDate(item.mastodon_activo),
   };
