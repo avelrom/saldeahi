@@ -126,7 +126,7 @@ const FALLBACK_EMAILS: Record<string, string> = {
   Universidades: 'informacion@universidad.es',
 };
 
-const REPO = "https://github.com/avelrom/saldeahi";
+const REPO = "https://github.com/lopublico/saldeahi";
 
 function generateIssueUrl(item: any) {
   const title = `Corrección de datos: ${item.nombre}`;
